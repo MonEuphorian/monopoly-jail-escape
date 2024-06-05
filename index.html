@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monopoly Jail Escape</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .question {
+            margin-top: 20px;
+        }
+        .choices {
+            margin-top: 20px;
+        }
+        .choice {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Monopoly Jail Escape</h1>
+    <div class="question">
+        <p id="questionText">Here will be a question.</p>
+        <div class="choices">
+            <div class="choice" onclick="checkAnswer('A')">A: Choice A</div>
+            <div class="choice" onclick="checkAnswer('B')">B: Choice B</div>
+            <div class="choice" onclick="checkAnswer('C')">C: Choice C</div>
+            <div class="choice" onclick="checkAnswer('D')">D: Choice D</div>
+        </div>
+    </div>
+    <script>
+        // Simple example question and choices
+        const question = {
+            text: "What is the capital of France?",
+            choices: {
+                A: "Berlin",
+                B: "Madrid",
+                C: "Paris",
+                D: "Rome"
+            },
+            correctAnswer: "C"
+        };
+
+        document.getElementById('questionText').innerText = question.text;
+        document.querySelectorAll('.choice').forEach((choiceElement, index) => {
+            const choiceKey = Object.keys(question.choices)[index];
+            choiceElement.innerText = `${choiceKey}: ${question.choices[choiceKey]}`;
+        });
+
+        function checkAnswer(answer) {
+            if (answer === question.correctAnswer) {
+                alert("Correct! You can get out of jail.");
+            } else {
+                alert("Wrong answer! Try again.");
+            }
+        }
+    </script>
+</body>
+</html>
